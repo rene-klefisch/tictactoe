@@ -20,4 +20,9 @@
         android:name="com.example.tictactoe.TicTacToeFragment"
         android:label="TicTacToe"
         tools:layout="@layout/fragment_tictactoe" />
+    <fragment
+        android:id="@+id/destination_dinnerdecider"
+        android:name="com.example.tictactoe.DinnerDeciderFragment"
+        android:label="DinnerDecider"
+        tools:layout="@layout/fragment_dinnerdecider" />
 </navigation>

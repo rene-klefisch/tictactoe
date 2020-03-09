@@ -25,5 +25,10 @@ class HomeFragment : Fragment(){
 
             Navigation.findNavController(it).navigate(R.id.destination_tictactoe)
         }
+
+        button_dinnerdecider.setOnClickListener {
+
+            Navigation.findNavController(it).navigate(R.id.destination_dinnerdecider)
+        }
     }
 }

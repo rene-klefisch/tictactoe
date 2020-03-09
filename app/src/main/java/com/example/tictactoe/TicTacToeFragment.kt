@@ -1,23 +1,27 @@
 package com.example.tictactoe
 
+
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_tictactoe.*
 
-var buttons : Array<Array<Button>>? = null
-var player1turn = true
-var roundCount = 0
-var player1Points = 0
-var player2Points = 0
-var textViewPlayer1 : TextView? = null
-var textViewPlayer2 : TextView? = null
 
 class TicTacToeFragment : Fragment(), View.OnClickListener{
+
+    var buttons : Array<Array<Button>>? = null
+    var player1turn = true
+    var roundCount = 0
+    var player1Points = 0
+    var player2Points = 0
+    var textViewPlayer1 : TextView? = null
+    var textViewPlayer2 : TextView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -105,11 +109,11 @@ class TicTacToeFragment : Fragment(), View.OnClickListener{
         when(player1turn){
             true -> {
                 player1Points++
-            //    Toast.makeText(this, "Player 1 wins!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Player 1 wins!", Toast.LENGTH_SHORT).show()
             }
             else -> {
                 player2Points++
-          //      Toast.makeText(this, "Player 2 wins!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Player 2 wins!", Toast.LENGTH_SHORT).show()
             }
         }
         updatePointsText()
@@ -117,7 +121,7 @@ class TicTacToeFragment : Fragment(), View.OnClickListener{
     }
 
     private fun draw() {
-        //Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Draw!", Toast.LENGTH_SHORT).show()
         resetBoard()
     }
 
