@@ -1,4 +1,4 @@
-package com.example.tictactoe
+package com.example.tictactoe.tictactoe
 
 
 
@@ -10,11 +10,14 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.example.tictactoe.R
 import kotlinx.android.synthetic.main.fragment_tictactoe.*
 
 
 class TicTacToeFragment : Fragment(), View.OnClickListener{
 
+    lateinit var ticTacToeViewModel: TicTacToeViewModel
     var buttons : Array<Array<Button>>? = null
     var player1turn = true
     var roundCount = 0
@@ -34,6 +37,7 @@ class TicTacToeFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ticTacToeViewModel = ViewModelProviders.of(this).get(TicTacToeViewModel::class.java)
         buttons = arrayOf(
             arrayOf(button_00, button_01, button_02),
             arrayOf(button_10, button_11, button_12),

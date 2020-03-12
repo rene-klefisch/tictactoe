@@ -1,16 +1,17 @@
-package com.example.tictactoe
+package com.example.tictactoe.dinnerdecider
 
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.example.tictactoe.R
 import kotlinx.android.synthetic.main.fragment_dinnerdecider.*
-import java.util.*
 
 class DinnerDeciderFragment : Fragment() {
 
-    private var foodList = arrayListOf<String>()
+    lateinit var foodViewModel : DinnerDeciderViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,20 +24,16 @@ class DinnerDeciderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if(foodList.isEmpty()){
-            decideBtn.isVisible = false
-            decideBtn.isClickable = false
-        }
+        foodViewModel = ViewModelProviders.of(this).get(DinnerDeciderViewModel::class.java)
+        decideBtn.isVisible = false
+        decideBtn.isClickable = false
 
         addFoodBtn.setOnClickListener {
             val newFood = addFoodTxt.text.toString()
-            val charArray = newFood.toCharArray()
-            if(newFood != "" && newFood != " " && validateNewFood(charArray)) {
-                foodList.add(newFood)
+            val added = foodViewModel.addFood(newFood)
+            if (added) {
                 addFoodTxt.text.clear()
-                println(foodList)
-                if (!decideBtn.isClickable) {
+                if(!decideBtn.isClickable) {
                     decideBtn.isVisible = true
                     decideBtn.isClickable = true
                     enableDecider()
@@ -49,19 +46,7 @@ class DinnerDeciderFragment : Fragment() {
 
         fun enableDecider(){
             decideBtn.setOnClickListener {
-                val random = Random()
-                val randomFood = random.nextInt(foodList.count())
-                selectedFoodTxt.text = foodList[randomFood]
+                selectedFoodTxt.text = foodViewModel.decide()
             }
-        }
-
-        fun validateNewFood(charArray : CharArray) : Boolean{
-            var valid = true
-            for (i in 1 until charArray.size) {
-                if(charArray[i - 1] == ' ' && charArray[i] ==' ') {
-                    valid = false
-                }
-            }
-            return valid
         }
 }

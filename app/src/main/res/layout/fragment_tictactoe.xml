@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.tictactoe.MainViewModel" />
+            type="com.example.tictactoe.tictactoe.TicTacToeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="@color/background"
         android:orientation="vertical"
-        tool:context=".TicTacToeFragment">
+        tool:context=".tictactoe.TicTacToeFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"

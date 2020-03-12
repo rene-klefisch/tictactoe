@@ -17,12 +17,12 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/destination_tictactoe"
-        android:name="com.example.tictactoe.TicTacToeFragment"
+        android:name="com.example.tictactoe.tictactoe.TicTacToeFragment"
         android:label="TicTacToe"
         tools:layout="@layout/fragment_tictactoe" />
     <fragment
         android:id="@+id/destination_dinnerdecider"
-        android:name="com.example.tictactoe.DinnerDeciderFragment"
+        android:name="com.example.tictactoe.dinnerdecider.DinnerDeciderFragment"
         android:label="DinnerDecider"
         tools:layout="@layout/fragment_dinnerdecider" />
 </navigation>

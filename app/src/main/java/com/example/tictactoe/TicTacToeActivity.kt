@@ -16,7 +16,9 @@ class TicTacToeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tictactoe)
         setSupportActionBar(toolbar)
 
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        val navController = Navigation.findNavController(this,
+            R.id.nav_host_fragment
+        )
 
         setupBottomNavMenu(navController)
         setupSideNavigationMenu(navController)
@@ -45,12 +47,16 @@ class TicTacToeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        val navController = Navigation.findNavController(this,
+            R.id.nav_host_fragment
+        )
         val navigated = NavigationUI.onNavDestinationSelected(item!!, navController)
         return navigated || super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.nav_host_fragment), drawer_layout)
+        return NavigationUI.navigateUp(Navigation.findNavController(this,
+            R.id.nav_host_fragment
+        ), drawer_layout)
     }
 }
