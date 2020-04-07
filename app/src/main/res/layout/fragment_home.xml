@@ -40,5 +40,4 @@
             app:layout_constraintStart_toEndOf="@+id/button_tictactoe" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

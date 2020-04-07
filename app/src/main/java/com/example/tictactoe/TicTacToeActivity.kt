@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.example.tictactoe.tictactoe.TicTacToeFragment
 import kotlinx.android.synthetic.main.activity_tictactoe.*
 
 class TicTacToeActivity : AppCompatActivity() {
@@ -14,31 +15,19 @@ class TicTacToeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tictactoe)
-        setSupportActionBar(toolbar)
 
         val navController = Navigation.findNavController(this,
             R.id.nav_host_fragment
         )
 
+        setSupportActionBar(toolbar)
         setupBottomNavMenu(navController)
-        setupSideNavigationMenu(navController)
-        setupActionBar(navController)
     }
 
     private fun setupBottomNavMenu(navController: NavController) {
         bottom_nav?.let {
             NavigationUI.setupWithNavController(it, navController)
         }
-    }
-
-    private fun setupSideNavigationMenu(navController: NavController) {
-        nav_view?.let {
-            NavigationUI.setupWithNavController(it, navController)
-        }
-    }
-
-    private fun setupActionBar(navController: NavController) {
-        NavigationUI.setupActionBarWithNavController(this, navController, drawer_layout)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -54,9 +43,4 @@ class TicTacToeActivity : AppCompatActivity() {
         return navigated || super.onOptionsItemSelected(item)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(Navigation.findNavController(this,
-            R.id.nav_host_fragment
-        ), drawer_layout)
-    }
 }
