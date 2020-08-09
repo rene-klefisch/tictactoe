@@ -1,4 +1,4 @@
-package com.example.tictactoe.tictactoe
+package com.example.tictactoe.fragments
 
 
 
@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.tictactoe.R
 import com.example.tictactoe.databinding.FragmentTictactoeBinding
+import com.example.tictactoe.viewmodels.TicTacToeViewModel
 
 
 class TicTacToeFragment : Fragment(){
@@ -69,7 +70,8 @@ class TicTacToeFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_tictactoe, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_tictactoe, container, false)
         binding.clicker = gameListener
         return binding.root
     }
@@ -81,5 +83,6 @@ class TicTacToeFragment : Fragment(){
             binding.game = it
         })
     }
+
 
 }

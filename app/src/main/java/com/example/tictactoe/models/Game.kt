@@ -1,4 +1,4 @@
-package com.example.tictactoe.tictactoe
+package com.example.tictactoe.models
 
 enum class Player {
     PLAYER_1,
@@ -22,7 +22,8 @@ class GameField {
     init {
         for (row in 0..2) {
             for (column in 0..2) {
-                field[row][column] = FieldState.EMPTY
+                field[row][column] =
+                    FieldState.EMPTY
             }
         }
     }
@@ -46,7 +47,8 @@ class GameField {
     fun clear() {
         for (row in 0..2) {
             for (column in 0..2) {
-                field[row][column] = FieldState.EMPTY
+                field[row][column] =
+                    FieldState.EMPTY
             }
         }
     }

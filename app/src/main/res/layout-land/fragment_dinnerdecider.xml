@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.tictactoe.dinnerdecider.DinnerDeciderViewModel" />
+            type="com.example.tictactoe.viewmodels.DinnerDeciderViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".dinnerdecider.DinnerDeciderFragment">
+        tools:context=".fragments.DinnerDeciderFragment">
 
         <TextView
             android:id="@+id/selectedFoodTxt"

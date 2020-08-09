@@ -1,17 +1,27 @@
-package com.example.tictactoe.dinnerdecider
+package com.example.tictactoe.fragments
 
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import com.example.tictactoe.viewmodels.DinnerDeciderViewModel
+import com.example.tictactoe.util.Injectable
 import com.example.tictactoe.R
+import com.example.tictactoe.app.AppExecutors_Factory
 import kotlinx.android.synthetic.main.fragment_dinnerdecider.*
+import javax.inject.Inject
 
-class DinnerDeciderFragment : Fragment() {
+class DinnerDeciderFragment : Fragment(), Injectable {
 
-    lateinit var foodViewModel : DinnerDeciderViewModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val foodViewModel: DinnerDeciderViewModel by viewModels {
+        viewModelFactory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,13 +34,13 @@ class DinnerDeciderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        foodViewModel = ViewModelProviders.of(this).get(DinnerDeciderViewModel::class.java)
         decideBtn.isVisible = false
         decideBtn.isClickable = false
 
         addFoodBtn.setOnClickListener {
             val newFood = addFoodTxt.text.toString()
-            val added = foodViewModel.addFood(newFood)
+            //ToDo
+            /*val added = foodViewModel.addFood(newFood)
             if (added) {
                 addFoodTxt.text.clear()
                 if(!decideBtn.isClickable) {
@@ -40,13 +50,13 @@ class DinnerDeciderFragment : Fragment() {
                 }
             } else {
                 Toast.makeText(context, "Your Foodname can't consist of too many or only spaces!", Toast.LENGTH_LONG).show()
-            }
+            }*/
         }
     }
-
-        fun enableDecider(){
+        //ToDo
+        /*fun enableDecider(){
             decideBtn.setOnClickListener {
                 selectedFoodTxt.text = foodViewModel.decide()
             }
-        }
+        }*/
 }

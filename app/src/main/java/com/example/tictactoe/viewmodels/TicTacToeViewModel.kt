@@ -1,14 +1,17 @@
-package com.example.tictactoe.tictactoe
+package com.example.tictactoe.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.tictactoe.models.Game
+import com.example.tictactoe.models.GameField
 
 class TicTacToeViewModel : ViewModel(){
 
     private val gameData = MutableLiveData<Game>()
 
     init {
-        gameData.value = Game(gameField = GameField())
+        gameData.value =
+            Game(gameField = GameField())
     }
 
     fun getGame() = gameData
@@ -20,7 +23,8 @@ class TicTacToeViewModel : ViewModel(){
     }
 
     fun startNewGame() {
-        gameData.value = Game(gameField = GameField())
+        gameData.value =
+            Game(gameField = GameField())
     }
 
 }

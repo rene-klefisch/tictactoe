@@ -1,16 +1,16 @@
 package com.example.tictactoe
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import com.example.tictactoe.tictactoe.TicTacToeFragment
+import com.example.tictactoe.util.Injectable
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_tictactoe.*
 
-class TicTacToeActivity : AppCompatActivity() {
+class TicTacToeActivity : DaggerAppCompatActivity(), Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,8 @@ class TicTacToeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val navController = Navigation.findNavController(this,
+        val navController = Navigation.findNavController(
+            this,
             R.id.nav_host_fragment
         )
         val navigated = NavigationUI.onNavDestinationSelected(item!!, navController)

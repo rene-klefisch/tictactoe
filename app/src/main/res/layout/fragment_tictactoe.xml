@@ -6,7 +6,7 @@
     <data>
         <variable
             name="game"
-            type="com.example.tictactoe.tictactoe.Game" />
+            type="com.example.tictactoe.models.Game" />
         <variable
             name="clicker"
             type="android.view.View.OnClickListener" />
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:background="@color/background"
         android:orientation="vertical"
-        tool:context=".tictactoe.TicTacToeFragment">
+        tool:context=".fragments.TicTacToeFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"
